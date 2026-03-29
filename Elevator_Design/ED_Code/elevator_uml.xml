@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-03-29T12:00:00.000Z" agent="Mozilla/5.0" version="21.1.2" type="device">
+  <diagram id="elevator-class-diagram" name="Elevator System LLD">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- ENUMS -->
+        <!-- ═══════════════════════════════════════════ -->
+
+        <!-- ElevatorState Enum -->
+        <mxCell id="ElevatorState_title" value="«enumeration»&#xa;ElevatorState" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ElevatorState_body" value="MOVING_UP&#xa;MOVING_DOWN&#xa;IDLE&#xa;UNDER_MAINTENANCE" style="text;html=1;strokeColor=#6c8ebf;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ElevatorState_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="180" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Direction Enum -->
+        <mxCell id="Direction_title" value="«enumeration»&#xa;Direction" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="260" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Direction_body" value="UP&#xa;DOWN&#xa;NONE" style="text;html=1;strokeColor=#6c8ebf;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="260" y="80" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Direction_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="40" width="140" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- BUTTONS -->
+        <!-- ═══════════════════════════════════════════ -->
+
+        <!-- Button abstract -->
+        <mxCell id="Button_title" value="«abstract»&#xa;Button" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=3;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="40" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Button_fields" value="- isPressed: boolean" style="text;html=1;strokeColor=#82b366;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="80" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Button_methods" value="+ press(): void&#xa;+ reset(): void&#xa;+ isPressed(): boolean" style="text;html=1;strokeColor=#82b366;fillColor=#f9f9f9;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="110" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Button_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="40" width="180" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- InternalButton -->
+        <mxCell id="InternalButton_title" value="InternalButton" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="360" y="240" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="InternalButton_fields" value="- destinationFloor: int" style="text;html=1;strokeColor=#82b366;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="280" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="InternalButton_methods" value="+ getDestinationFloor(): int" style="text;html=1;strokeColor=#82b366;fillColor=#f9f9f9;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="310" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="InternalButton_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="240" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- HallButton -->
+        <mxCell id="HallButton_title" value="HallButton" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="580" y="240" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HallButton_fields" value="- direction: Direction&#xa;- floorNumber: int" style="text;html=1;strokeColor=#82b366;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="580" y="280" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HallButton_methods" value="+ getDirection(): Direction&#xa;+ getFloorNumber(): int" style="text;html=1;strokeColor=#82b366;fillColor=#f9f9f9;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="580" y="320" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HallButton_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="580" y="240" width="180" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Inheritance: InternalButton -> Button -->
+        <mxCell id="edge_InternalButton_Button" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=0;startArrow=none;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="InternalButton_border" target="Button_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Inheritance: HallButton -> Button -->
+        <mxCell id="edge_HallButton_Button" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=0;startArrow=none;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="HallButton_border" target="Button_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- MODELS -->
+        <!-- ═══════════════════════════════════════════ -->
+
+        <!-- Request -->
+        <mxCell id="Request_title" value="Request" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="820" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Request_fields" value="- sourceFloor: int&#xa;- destinationFloor: int&#xa;- direction: Direction" style="text;html=1;strokeColor=#d6b656;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="80" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Request_methods" value="+ getSourceFloor(): int&#xa;+ getDestinationFloor(): int&#xa;+ getDirection(): Direction" style="text;html=1;strokeColor=#d6b656;fillColor=#f9f9f9;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="140" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Request_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="820" y="40" width="200" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Floor -->
+        <mxCell id="Floor_title" value="Floor" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="820" y="240" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Floor_fields" value="- id: int&#xa;- upButton: HallButton&#xa;- downButton: HallButton" style="text;html=1;strokeColor=#d6b656;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="280" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Floor_methods" value="+ pressUpButton(): void&#xa;+ pressDownButton(): void&#xa;+ getUpButton(): HallButton&#xa;+ getDownButton(): HallButton" style="text;html=1;strokeColor=#d6b656;fillColor=#f9f9f9;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="340" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Floor_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="820" y="240" width="200" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- ElevatorCar -->
+        <mxCell id="ElevatorCar_title" value="ElevatorCar" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ElevatorCar_fields" value="- id: int&#xa;- currentFloor: int&#xa;- state: ElevatorState&#xa;- direction: Direction&#xa;- weightCapacity: int&#xa;- currentWeight: int&#xa;- internalButtons: List&lt;InternalButton&gt;&#xa;- doorOpen: boolean" style="text;html=1;strokeColor=#d6b656;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="280" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ElevatorCar_methods" value="+ pressButton(destFloor: int): void&#xa;+ isOverweight(): boolean&#xa;+ addWeight(weight: int): void&#xa;+ removeWeight(weight: int): void&#xa;+ getters() / setters()" style="text;html=1;strokeColor=#d6b656;fillColor=#f9f9f9;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="430" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ElevatorCar_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="280" height="280" as="geometry" />
+        </mxCell>
+
+        <!-- ElevatorCar uses ElevatorState -->
+        <mxCell id="edge_Car_State" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;endArrow=open;startArrow=none;" edge="1" parent="1" source="ElevatorCar_border" target="ElevatorState_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ElevatorCar uses Direction -->
+        <mxCell id="edge_Car_Dir" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;endArrow=open;startArrow=none;" edge="1" parent="1" source="ElevatorCar_border" target="Direction_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Floor uses HallButton -->
+        <mxCell id="edge_Floor_HallButton" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=diamondThin;endFill=0;startArrow=none;" edge="1" parent="1" source="Floor_border" target="HallButton_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ElevatorCar contains InternalButton -->
+        <mxCell id="edge_Car_InternalButton" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=diamondThin;endFill=1;startArrow=none;" edge="1" parent="1" source="ElevatorCar_border" target="InternalButton_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- STRATEGIES -->
+        <!-- ═══════════════════════════════════════════ -->
+
+        <!-- RequestProcessingStrategy Interface -->
+        <mxCell id="RPS_title" value="«interface»&#xa;RequestProcessingStrategy" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="RPS_methods" value="+ addRequest(queue, req: Request): void&#xa;+ processRequests(queue, callbacks): void" style="text;html=1;strokeColor=#9673a6;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="640" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="RPS_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="260" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- FCFSStrategy -->
+        <mxCell id="FCFS_title" value="FCFSStrategy" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="760" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FCFS_methods" value="+ addRequest()&#xa;+ processRequests()" style="text;html=1;strokeColor=#9673a6;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="800" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FCFS_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="760" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- SeekFirstStrategy -->
+        <mxCell id="Seek_title" value="SeekFirstStrategy" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="180" y="760" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Seek_methods" value="+ addRequest()&#xa;+ processRequests()" style="text;html=1;strokeColor=#9673a6;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="180" y="800" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Seek_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="760" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Realization: FCFS implements RPS -->
+        <mxCell id="edge_FCFS_RPS" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;endArrow=block;endFill=0;startArrow=none;" edge="1" parent="1" source="FCFS_border" target="RPS_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Realization: Seek implements RPS -->
+        <mxCell id="edge_Seek_RPS" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;endArrow=block;endFill=0;startArrow=none;" edge="1" parent="1" source="Seek_border" target="RPS_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ElevatorSelectionStrategy Interface -->
+        <mxCell id="ESS_title" value="«interface»&#xa;ElevatorSelectionStrategy" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="360" y="600" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ESS_methods" value="+ selectElevator(elevators, req): ElevatorCar" style="text;html=1;strokeColor=#9673a6;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="640" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ESS_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="600" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- OddEvenStrategy -->
+        <mxCell id="OddEven_title" value="OddEvenStrategy" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="440" y="760" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OddEven_methods" value="+ selectElevator(elevators, req): ElevatorCar" style="text;html=1;strokeColor=#9673a6;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="440" y="800" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OddEven_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="760" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Realization: OddEven implements ESS -->
+        <mxCell id="edge_OddEven_ESS" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;endArrow=block;endFill=0;startArrow=none;" edge="1" parent="1" source="OddEven_border" target="ESS_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- CONTROLLERS -->
+        <!-- ═══════════════════════════════════════════ -->
+
+        <!-- ElevatorController -->
+        <mxCell id="EC_title" value="ElevatorController" style="text;html=1;strokeColor=#ae4132;fillColor=#f8cecc;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="700" y="480" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="EC_fields" value="- elevatorCar: ElevatorCar&#xa;- requestQueue: List&lt;Request&gt;&#xa;- processingStrategy: RequestProcessingStrategy" style="text;html=1;strokeColor=#ae4132;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="520" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EC_methods" value="+ submitRequest(req: Request): void&#xa;+ processRequests(): void&#xa;+ setUnderMaintenance(flag: boolean): void&#xa;+ getElevatorCar(): ElevatorCar&#xa;- moveToFloor(floor: int): void" style="text;html=1;strokeColor=#ae4132;fillColor=#f9f9f9;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="580" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="EC_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ae4132;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="700" y="480" width="260" height="190" as="geometry" />
+        </mxCell>
+
+        <!-- ElevatorSystem Singleton -->
+        <mxCell id="ES_title" value="«Singleton»&#xa;ElevatorSystem" style="text;html=1;strokeColor=#ae4132;fillColor=#f8cecc;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="480" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ES_fields" value="- instance: ElevatorSystem&#xa;- controllers: List&lt;ElevatorController&gt;&#xa;- floors: List&lt;Floor&gt;&#xa;- selectionStrategy: ElevatorSelectionStrategy&#xa;- alarmTriggered: boolean" style="text;html=1;strokeColor=#ae4132;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="520" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ES_methods" value="+ getInstance(): ElevatorSystem&#xa;+ initialize(controllers, floors, strategy)&#xa;+ acceptHallCall(floor: int, dir: Direction)&#xa;+ triggerAlarm(): void&#xa;+ resetAlarm(): void" style="text;html=1;strokeColor=#ae4132;fillColor=#f9f9f9;align=left;verticalAlign=top;spacingLeft=10;overflow=hidden;rotatable=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="610" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ES_border" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ae4132;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="480" width="280" height="220" as="geometry" />
+        </mxCell>
+
+        <!-- ElevatorSystem manages ElevatorController (1..* aggregation) -->
+        <mxCell id="edge_ES_EC" value="1..*" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=diamondThin;endFill=1;startArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ES_border" target="EC_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ElevatorController manages ElevatorCar (1–1 aggregation) -->
+        <mxCell id="edge_EC_Car" value="1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=diamondThin;endFill=0;startArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="EC_border" target="ElevatorCar_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ElevatorController uses RequestProcessingStrategy -->
+        <mxCell id="edge_EC_RPS" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;endArrow=open;startArrow=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EC_border" target="RPS_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ElevatorSystem uses ElevatorSelectionStrategy -->
+        <mxCell id="edge_ES_ESS" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;endArrow=open;startArrow=none;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ES_border" target="ESS_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ElevatorSystem manages Floor -->
+        <mxCell id="edge_ES_Floor" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=diamondThin;endFill=0;startArrow=none;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ES_border" target="Floor_border">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
